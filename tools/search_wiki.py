@@ -57,7 +57,7 @@ def is_searchable_path(path: Path, root: Path, *, include_derived: bool) -> bool
 
 def search_files(queries: list[str], files: Iterable[Path], options: SearchOptions) -> list[SearchMatch]:
     terms = [term for term in queries if term]
-    if not terms:
+    if not terms or options.limit <= 0:
         return []
     if not options.case_sensitive:
         terms = [term.lower() for term in terms]

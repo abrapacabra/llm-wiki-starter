@@ -24,17 +24,20 @@ updated: 2026-05-18
 
 ## Claim
 
-An LLM wiki is most useful when source intake, durable synthesis, query outputs, reviews, and decisions compound into a persistent Markdown graph that humans and agents can inspect later.
+This note records a summary-only design memory for an LLM wiki pattern: source intake, durable synthesis, query outputs, reviews, and decisions can compound into a persistent Markdown graph that humans and agents can inspect later.
 
 ## Source Support
 
 - source_id: `karpathy-llm-wiki-pattern`
 - locator: summary-only source registration; no page or chunk locator available
-- confidence: medium; source needs review against the authoritative text
+- use: design memory for this starter, not an authoritative reproduction of the source text
+- confidence: medium-low until reviewed against the authoritative source
 
 ## Practical Take
 
-This starter should be treated as a wiki operating system, not just a folder of Markdown files. The valuable behavior is the loop: register sources, derive or summarize only what is needed, write focused notes, review gaps, record decisions, and keep the navigation surface healthy.
+Treat this starter as a wiki operating system, not just a folder of Markdown files. The useful behavior to preserve is the loop: register sources, derive or summarize only what is needed, write focused notes, review gaps, record decisions, and keep the navigation surface healthy.
+
+Because the supporting source is registered in summary-only mode, this page should be cited as the repo's design interpretation, not as a substitute for the original source.
 
 ## Where The Repo Matches The Pattern
 
@@ -48,11 +51,11 @@ This starter should be treated as a wiki operating system, not just a folder of 
 - It includes structural validation for frontmatter, source IDs, derived paths, and local Markdown links.
 - It routes reviews and decisions as first-class artifacts instead of treating them as comments around notes.
 
-## Missing Or Newly Added Wiki-Native Behavior
+## Newly Added Wiki-Native Behavior
 
 - Obsidian conventions are now documented so future notes can support both validated Markdown links and optional graph-friendly wikilinks.
 - Query promotion is now documented so valuable answers can become durable artifacts without archiving every chat.
-- Wiki health lint and local search remain later scale-readiness work under M2.
+- Local search and wiki health lint are documented scale-readiness artifacts under M2.
 
 ## Repo Implications
 
@@ -62,7 +65,7 @@ This starter should be treated as a wiki operating system, not just a folder of 
 
 ## Open Questions
 
-- `needs-review`: compare the summary-only source record with the authoritative source text before marking this note verified.
+- `needs-review`: compare the summary-only source record with the authoritative source text before marking this note verified or presenting it as more than design memory.
 
 ## Links
 

@@ -44,6 +44,7 @@ See [source registry](source-registry.md).
 - [Milestones](../projects/milestones/README.md)
 - [M1 Wiki Foundation](../projects/milestones/wiki-foundation.md)
 - [M2 Scale Readiness](../projects/milestones/wiki-scale-readiness.md)
+- [M3 Publishing Readiness](../projects/milestones/wiki-publishing-readiness.md)
 
 ## Maintenance
 

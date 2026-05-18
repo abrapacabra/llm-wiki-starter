@@ -46,6 +46,7 @@ ALLOWED_SOURCE_TIERS = {
 
 LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 WIKILINK_RE = re.compile(r"\[\[([^\]|#]+)")
+CODE_SPAN_RE = re.compile(r"(`+).*?\1", re.DOTALL)
 
 
 def rel(path: Path) -> str:
@@ -339,7 +340,7 @@ def format_report_items(items: list[str]) -> list[str]:
 
 
 def strip_inline_code(text: str) -> str:
-    return re.sub(r"`[^`]*`", "", text)
+    return CODE_SPAN_RE.sub("", text)
 
 
 def should_skip_link(href: str) -> bool:
