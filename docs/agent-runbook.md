@@ -64,7 +64,7 @@ Promote query answers only when they create reusable value. Durable query-derive
 
 Use search in order: `meta/index.md`, active workstream or source registry, durable Markdown search, then `raw/derived/` only for source work. `raw/external/` is not part of normal search.
 
-Use wiki health lint as an advisory review pass. `python3 tools/validate_repo.py --health-report` prints non-blocking signals; semantic findings still require source inspection.
+Use wiki health lint as an advisory review pass. `uv run python tools/validate_repo.py --health-report` prints non-blocking signals; semantic findings still require source inspection.
 
 ## CI Validation
 
@@ -79,6 +79,6 @@ Agent work is complete when:
 - source links are traceable when factual content was added
 - uncertainty is marked as `needs-review` or `conflicted`
 - required control files are updated
-- `python tools/validate_repo.py` has run when workflow, metadata, links, sources, or durable artifacts changed
+- `uv run python tools/validate_repo.py` has run when workflow, metadata, links, sources, or durable artifacts changed
 - any relevant CI validation path has been preserved
 - verification has run and skipped checks are reported

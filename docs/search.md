@@ -16,7 +16,7 @@ Do not search `raw/external/` as a default workflow. Heavyweight originals and a
 Use the stdlib search helper when the index is too small to answer a navigation question:
 
 ```bash
-python3 tools/search_wiki.py query workflow --limit 10
+uv run python tools/search_wiki.py query workflow --limit 10
 ```
 
 The search matches lines containing all query terms, case-insensitively by default. It searches durable Markdown and excludes `.git/`, virtual environments, caches, scratch folders, `raw/external/`, and `raw/derived/`.
@@ -24,7 +24,7 @@ The search matches lines containing all query terms, case-insensitively by defau
 For source work that needs committed parser derivatives:
 
 ```bash
-python3 tools/search_wiki.py source locator --include-derived --limit 20
+uv run python tools/search_wiki.py source locator --include-derived --limit 20
 ```
 
 `--include-derived` adds `raw/derived/` only. It still excludes `raw/external/`.

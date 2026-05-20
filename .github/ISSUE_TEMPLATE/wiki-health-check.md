@@ -14,8 +14,8 @@ assignees: ""
 
 ## Mechanical Checks
 
-- `python3 tools/validate_repo.py`:
-- `python3 tools/validate_repo.py --health-report`:
+- `uv run python tools/validate_repo.py`:
+- `uv run python tools/validate_repo.py --health-report`:
 - Search queries used:
 
 ## Manual Review Categories

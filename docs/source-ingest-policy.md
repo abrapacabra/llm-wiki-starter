@@ -2,7 +2,7 @@
 title: Source Ingest Policy
 artifact_type: source-ingest-policy
 status: active
-last_reviewed:
+last_reviewed: 2026-05-20
 ---
 
 # Source Ingest Policy
@@ -40,10 +40,10 @@ This is an operational policy, not legal advice. When uncertain, use the stricte
 
 ## Source Lanes
 
-The first implemented lane is PDF decomposition:
+The first implemented lane is Docling-backed PDF decomposition:
 
 ```bash
-python tools/source-ingest/pdf/ingest_pdf.py \
+uv run --group pdf python tools/source-ingest/pdf/ingest_pdf.py \
   --pdf "/path/to/source.pdf" \
   --source-id "source-slug" \
   --source-tier reference \
@@ -51,6 +51,8 @@ python tools/source-ingest/pdf/ingest_pdf.py \
   --page-range 1-20 \
   --max-chars 2200
 ```
+
+The PDF lane enables Docling OCR, table structure extraction, page previews, and picture extraction by default. Use `--no-ocr`, `--no-render-pages`, and `--no-extract-figures` for faster scoped runs when those outputs are unnecessary.
 
 Roadmap lanes may later cover web pages, document files, transcripts, and structured datasets. Add those lanes only when they have clear source identity, derivative output, and registry rules.
 

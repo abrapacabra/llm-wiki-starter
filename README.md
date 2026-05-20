@@ -13,7 +13,7 @@ The starter is intentionally generic: bring your own domain, keep source materia
 5. Run validation before handoff:
 
 ```bash
-python3 tools/validate_repo.py
+uv run python tools/validate_repo.py
 ```
 
 ## What This Starter Gives You
@@ -21,6 +21,7 @@ python3 tools/validate_repo.py
 - A small Markdown knowledge base layout with clear boundaries between `raw/`, `knowledge/`, `reviews/`, `projects/`, `docs/`, and `meta/`.
 - An agent workflow that starts from a visible workstream or issue and ends with traceable validation.
 - A source registry, source tiers, and ingest rules for keeping evidence explicit.
+- Docling-backed PDF ingest through the optional uv `pdf` dependency group.
 - Templates for knowledge notes, source summaries, reviews, decisions, query synthesis, workstreams, and agent tasks.
 - Local validation for required frontmatter, registered source references, and relative Markdown links.
 - Optional search and wiki health review lanes for when the wiki grows beyond index-first navigation.
@@ -38,20 +39,26 @@ python3 tools/validate_repo.py
 Run the repository validator and tests before handing off changes:
 
 ```bash
-python3 tools/validate_repo.py
-python3 -m unittest discover -s tests -v
+uv run python tools/validate_repo.py
+uv run python -m unittest discover -s tests -v
 ```
 
 For advisory wiki health signals:
 
 ```bash
-python3 tools/validate_repo.py --health-report
+uv run python tools/validate_repo.py --health-report
 ```
 
 For a quick search smoke test:
 
 ```bash
-python3 tools/search_wiki.py wiki health --limit 5
+uv run python tools/search_wiki.py wiki health --limit 5
+```
+
+For PDF source ingest, install the optional PDF lane dependencies on demand:
+
+```bash
+uv run --group pdf python tools/source-ingest/pdf/ingest_pdf.py --pdf <path> --source-id <id> --source-tier reference --title <title>
 ```
 
 The validator checks structural rules only. Factual claims, source disagreement, stale notes, and review quality still require human or agent inspection.
@@ -62,6 +69,8 @@ The validator checks structural rules only. Factual claims, source disagreement,
 AGENTS.md                  Agent entry point and cold-start rules
 README.md                  Public landing page
 LICENSE                    Project license
+.python-version            Default Python version for uv-managed environments
+pyproject.toml             uv project metadata and dependency groups
 docs/                      Runbooks, workflows, policies, and templates
 meta/                      Index, source registry, and maintenance log
 raw/                       Source pointers, external originals, and derivatives

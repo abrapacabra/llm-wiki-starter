@@ -2,10 +2,15 @@
 artifact_type: log
 status: active
 owner: agents
-updated: 2026-05-18
+updated: 2026-05-20
 ---
 
 # Maintenance Log
+
+## 2026-05-20
+
+- Replaced the PDF ingest parser internals with Docling while preserving the derived-source output contract; added mocked ingest tests and recorded the Docling adoption decision.
+- Added uv project metadata, moved PDF ingest dependency management into a uv dependency group, and updated validation/source-ingest commands plus CI to run through uv.
 
 ## 2026-05-18
 

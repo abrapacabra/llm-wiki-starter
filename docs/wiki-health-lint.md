@@ -7,13 +7,13 @@ Wiki health lint is a periodic review pass for problems that structural validati
 Run the normal validator first:
 
 ```bash
-python3 tools/validate_repo.py
+uv run python tools/validate_repo.py
 ```
 
 Then run the non-blocking health report:
 
 ```bash
-python3 tools/validate_repo.py --health-report
+uv run python tools/validate_repo.py --health-report
 ```
 
 The health report is advisory in v1. It reports status counts, unresolved `needs-review` and `conflicted` artifacts, orphan candidates, unresolved wikilinks, and registered source count. It does not fail the build.

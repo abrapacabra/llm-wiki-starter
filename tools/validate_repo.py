@@ -12,6 +12,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+SKIP_DIRS = {
+    ".cache",
+    ".git",
+    ".pytest_cache",
+    ".venv",
+    "__pycache__",
+    "scratch",
+    "tmp",
+    "venv",
+}
+
 ALLOWED_ARTIFACT_TYPES = {
     "knowledge-note",
     "source-summary",
@@ -57,7 +68,7 @@ def markdown_files() -> list[Path]:
     return sorted(
         path
         for path in ROOT.rglob("*.md")
-        if ".git" not in path.parts
+        if not any(part in SKIP_DIRS for part in path.parts)
     )
 
 

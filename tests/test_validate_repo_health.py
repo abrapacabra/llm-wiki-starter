@@ -56,6 +56,21 @@ class ValidateRepoHealthTests(unittest.TestCase):
             self.assertNotIn("Missing Single", report)
             self.assertNotIn("Missing Double", report)
 
+    def test_validator_ignores_local_virtualenv_markdown(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / ".venv" / "lib").mkdir(parents=True)
+            (root / ".venv" / "lib" / "third-party.md").write_text(
+                "[broken](missing.md)\n",
+                encoding="utf-8",
+            )
+
+            with mock.patch.object(validate_repo, "ROOT", root):
+                errors = []
+                validate_repo.validate_links(errors)
+
+            self.assertEqual([], errors)
+
 
 if __name__ == "__main__":
     unittest.main()

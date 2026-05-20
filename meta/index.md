@@ -2,7 +2,7 @@
 artifact_type: index
 status: active
 owner: agents
-updated: 2026-05-18
+updated: 2026-05-20
 ---
 
 # Wiki Index
@@ -23,7 +23,7 @@ This index starts blank. Add only durable artifacts that should be easy for futu
 
 ## Decisions
 
-None yet.
+- [Adopt Docling for PDF Ingest](../projects/decisions/adopt-docling-pdf-ingest.md)
 
 ## Sources
 
